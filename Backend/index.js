@@ -10,7 +10,9 @@ import subscribeRoute from "./route/subscribe.route.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://book-store-ecommerce-application.vercel.app', // Frontend URL
+}));
 app.use(express.json());
 
 dotenv.config();
