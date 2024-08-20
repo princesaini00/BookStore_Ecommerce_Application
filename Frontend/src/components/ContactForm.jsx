@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const ContactForm = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const ContactForm = () => {
     e.preventDefault(); // Prevent form submission from refreshing the page
 
     try {
-      const response = await fetch("http://localhost:4001/contact/contactform", {
+      const response = await fetch(`${backendUrl}/contact/contactform`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -6,7 +6,7 @@ import cors from "cors";
 import bookRoute from "./route/book.route.js";
 import userRoute from "./route/user.route.js";
 import contactformRoute from "./route/contactform.route.js";
-// import subscribeRoute from "./route/subscribe.route.js";
+import subscribeRoute from "./route/subscribe.route.js";
 
 const app = express();
 
@@ -29,7 +29,7 @@ try {
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 app.use('/contact', contactformRoute);
-// app.use("/user", subscribeRoute);
+app.use("/user", subscribeRoute);
 
 
 app.listen(PORT, () => {

@@ -4,11 +4,15 @@ import Subscribe from "./Subscribe.jsx";
 
 function Banner() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    Subscribe(email, setEmail, setStatus); // Call the Subscribe function
+  const handleInputChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubscribe = () => {
+    if (email) {
+      Subscribe(email);
+    }
   };
 
   return (
@@ -30,7 +34,7 @@ function Banner() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8 mt-5">
+          <div className="mt-8">
             <label className="input input-bordered flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,21 +46,21 @@ function Banner() {
                 <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
               </svg>
               <input
-                type="text"
+                type="email"
                 className="grow"
                 placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                onChange={handleInputChange}
               />
             </label>
 
             <button
               className="btn text-white mt-6 bg-orange-600 border-orange-600 hover:bg-orange-700"
-              type="submit"
+              onClick={handleSubscribe}
             >
               Get Started
             </button>
-            {status && <p className="mt-4 text-lg">{status}</p>}
-          </form>
+          </div>
         </div>
         {/* ************************************************************** */}
         <div className=" order-1 w-full mt-20 md:w-1/2">

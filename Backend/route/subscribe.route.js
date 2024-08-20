@@ -1,8 +1,8 @@
-// import express from 'express';
-// import { subscribeUser } from '../controllers/subscribe.controller.js'; t
+import express from 'express';
+import { subscribe } from '../controller/subscribe.controller.js';
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.post('/subscribe', subscribeUser);
+router.post('/subscribe', subscribe);
 
-// export default router;
+export default router;

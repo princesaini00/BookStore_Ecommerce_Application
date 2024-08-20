@@ -6,13 +6,15 @@ import Slider from "react-slick";
 
 import axios from "axios";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 import Cards from "./Cards";
 function Freebook() {
   const [book, setBook] = useState([]);
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        const res = await axios.get(`${backendUrl}/book`);
 
         const data = res.data.filter((data) => data.category === "Free");
         console.log(data);
